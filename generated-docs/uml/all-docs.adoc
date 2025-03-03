@@ -1,0 +1,19 @@
+== Application
+plantuml::components.puml[,,format=svg]
+
+== Catalog
+plantuml::module-catalog.puml[,,format=svg]
+include::module-catalog.adoc[]
+
+== Command
+plantuml::module-catalog.command.puml[,,format=svg]
+include::module-catalog.command.adoc[]
+
+== Query
+plantuml::module-catalog.query.puml[,,format=svg]
+include::module-catalog.query.adoc[]
+
+== Shared
+plantuml::module-shared.puml[,,format=svg]
+include::module-shared.adoc[]
+

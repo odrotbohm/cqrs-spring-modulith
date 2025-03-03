@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`gae.piaz.modulith.cqrs.shared`
+|Spring components
+|* `g.p.m.c.s.config.CqrsConfig`
+|===

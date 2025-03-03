@@ -1,0 +1,19 @@
+@startuml
+set separator none
+title Command
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.Command, "Command", $techn="Module", $descr="", $tags="", $link="")
+  Component(Application.Application.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+}
+
+Rel(Application.Application.Command, Application.Application.Shared, "depends on", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml
