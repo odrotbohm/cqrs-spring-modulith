@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`gae.piaz.modulith.cqrs.query`
+|Events listened to
+|* `g.p.m.c.c.events.ProductCreatedEvent` (async) 
+* `g.p.m.c.c.events.ProductStockChangedEvent` (async) 
+* `g.p.m.c.c.events.ProductUpdatedEvent` (async) 
+|===

@@ -1,5 +1,0 @@
-[%autowidth.stretch, cols="h,a"]
-|===
-|Base package
-|`gae.piaz.modulith.cqrs.catalog.command`
-|===
