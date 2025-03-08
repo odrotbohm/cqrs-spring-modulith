@@ -1,7 +1,7 @@
 package gae.piaz.modulith.cqrs.query.application;
 
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
-import gae.piaz.modulith.cqrs.query.infrastructure.ProductViewRepository;
+import gae.piaz.modulith.cqrs.query.domain.ProductViewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import jakarta.persistence.EntityNotFoundException;

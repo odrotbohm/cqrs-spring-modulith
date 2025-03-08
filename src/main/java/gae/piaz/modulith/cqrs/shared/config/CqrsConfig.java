@@ -40,7 +40,7 @@ public class CqrsConfig {
             @Qualifier("commandDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("gae.piaz.modulith.cqrs.catalog.command.domain")
+                .packages("gae.piaz.modulith.cqrs.command.domain")
                 .persistenceUnit("command")
                 .build();
     }
@@ -51,7 +51,7 @@ public class CqrsConfig {
             @Qualifier("queryDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("gae.piaz.modulith.cqrs.catalog.query.domain")
+                .packages("gae.piaz.modulith.cqrs.query.domain")
                 .persistenceUnit("query")
                 .build();
     }

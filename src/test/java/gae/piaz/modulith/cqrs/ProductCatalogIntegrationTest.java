@@ -1,10 +1,10 @@
 package gae.piaz.modulith.cqrs;
 
-import gae.piaz.modulith.cqrs.command.application.ProductCommandService;
+import gae.piaz.modulith.cqrs.command.service.ProductCommandService;
 import gae.piaz.modulith.cqrs.command.domain.Product;
-import gae.piaz.modulith.cqrs.command.infrastructure.ProductRepository;
+import gae.piaz.modulith.cqrs.command.domain.ProductRepository;
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
-import gae.piaz.modulith.cqrs.query.infrastructure.ProductViewRepository;
+import gae.piaz.modulith.cqrs.query.domain.ProductViewRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

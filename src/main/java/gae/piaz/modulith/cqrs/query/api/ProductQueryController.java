@@ -2,19 +2,18 @@ package gae.piaz.modulith.cqrs.query.api;
 
 import gae.piaz.modulith.cqrs.query.application.ProductQueryService;
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
+import lombok.AllArgsConstructor;
+
 import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/products/queries")
+@AllArgsConstructor
 public class ProductQueryController {
     private final ProductQueryService queryService;
-    
-    public ProductQueryController(ProductQueryService queryService) {
-        this.queryService = queryService;
-    }
-    
+
     @GetMapping
     public List<ProductView> getAllProducts() {
         return queryService.findAllProducts();

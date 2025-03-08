@@ -1,10 +1,12 @@
-package gae.piaz.modulith.cqrs.command.application;
+package gae.piaz.modulith.cqrs.command.service;
 
 import gae.piaz.modulith.cqrs.command.domain.Product;
 import gae.piaz.modulith.cqrs.command.events.ProductCreatedEvent;
 import gae.piaz.modulith.cqrs.command.events.ProductStockChangedEvent;
 import gae.piaz.modulith.cqrs.command.events.ProductUpdatedEvent;
-import gae.piaz.modulith.cqrs.command.infrastructure.ProductRepository;
+import gae.piaz.modulith.cqrs.command.domain.ProductRepository;
+import lombok.AllArgsConstructor;
+
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,20 +16,15 @@ import java.time.LocalDateTime;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class ProductCommandService {
     private final ProductRepository productRepository;
     private final ApplicationEventPublisher eventPublisher;
-    
-    public ProductCommandService(ProductRepository productRepository, ApplicationEventPublisher eventPublisher) {
-        this.productRepository = productRepository;
-        this.eventPublisher = eventPublisher;
-    }
-    
+
     public Long createProduct(String name, String description, BigDecimal price, Integer stock, String category) {
         Product product = new Product(name, description, price, stock, category);
         Product saved = productRepository.save(product);
-        
-        // Publish event
+
         eventPublisher.publishEvent(new ProductCreatedEvent(
             saved.getId(),
             saved.getName(),
@@ -37,18 +34,17 @@ public class ProductCommandService {
             saved.getCategory(),
             LocalDateTime.now()
         ));
-        
+
         return saved.getId();
     }
     
     public void updateStock(Long productId, Integer quantityChange) {
         Product product = productRepository.findById(productId)
             .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + productId));
-            
+
         product.updateStock(quantityChange);
         productRepository.save(product);
-        
-        // Publish event
+
         eventPublisher.publishEvent(new ProductStockChangedEvent(
             product.getId(),
             product.getStock(),
@@ -63,8 +59,7 @@ public class ProductCommandService {
             
         product.update(name, description, price, category);
         productRepository.save(product);
-        
-        // Publish event
+
         eventPublisher.publishEvent(new ProductUpdatedEvent(
             product.getId(),
             product.getName(),

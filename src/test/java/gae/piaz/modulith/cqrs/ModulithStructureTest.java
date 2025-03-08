@@ -6,7 +6,7 @@ import org.springframework.modulith.docs.Documenter;
 
 class ModulithStructureTest {
 
-    ApplicationModules modules = ApplicationModules.of(Application.class);
+    ApplicationModules modules = ApplicationModules.of(CQRSApplication.class);
 
     @Test
     void verifiesModularStructure() {

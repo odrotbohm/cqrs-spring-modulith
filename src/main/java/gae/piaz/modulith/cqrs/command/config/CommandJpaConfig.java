@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    basePackages = "gae.piaz.modulith.cqrs.catalog.command.infrastructure",
+    basePackages = "gae.piaz.modulith.cqrs.command.domain",
     entityManagerFactoryRef = "entityManagerFactory",
     transactionManagerRef = "transactionManager"
 )

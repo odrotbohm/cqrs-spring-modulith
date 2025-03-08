@@ -4,7 +4,7 @@ import gae.piaz.modulith.cqrs.command.events.ProductCreatedEvent;
 import gae.piaz.modulith.cqrs.command.events.ProductStockChangedEvent;
 import gae.piaz.modulith.cqrs.command.events.ProductUpdatedEvent;
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
-import gae.piaz.modulith.cqrs.query.infrastructure.ProductViewRepository;
+import gae.piaz.modulith.cqrs.query.domain.ProductViewRepository;
 import org.springframework.modulith.events.ApplicationModuleListener;
 import org.springframework.stereotype.Service;
 

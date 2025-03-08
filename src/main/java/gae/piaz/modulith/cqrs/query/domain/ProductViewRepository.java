@@ -1,6 +1,5 @@
-package gae.piaz.modulith.cqrs.query.infrastructure;
+package gae.piaz.modulith.cqrs.query.domain;
 
-import gae.piaz.modulith.cqrs.query.domain.ProductView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;

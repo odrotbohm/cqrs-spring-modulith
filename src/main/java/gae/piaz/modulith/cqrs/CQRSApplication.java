@@ -6,10 +6,10 @@ import org.springframework.modulith.Modulithic;
 
 @SpringBootApplication
 @Modulithic
-public class Application {
+public class CQRSApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CQRSApplication.class, args);
 	}
 
 }

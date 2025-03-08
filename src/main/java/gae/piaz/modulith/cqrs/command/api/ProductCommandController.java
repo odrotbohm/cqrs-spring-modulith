@@ -1,6 +1,8 @@
 package gae.piaz.modulith.cqrs.command.api;
 
-import gae.piaz.modulith.cqrs.command.application.ProductCommandService;
+import gae.piaz.modulith.cqrs.command.service.ProductCommandService;
+import lombok.AllArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
@@ -8,13 +10,10 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/api/products/commands")
+@AllArgsConstructor
 public class ProductCommandController {
     private final ProductCommandService commandService;
-    
-    public ProductCommandController(ProductCommandService commandService) {
-        this.commandService = commandService;
-    }
-    
+
     @PostMapping
     public ResponseEntity<Long> createProduct(@RequestBody CreateProductRequest request) {
         Long id = commandService.createProduct(

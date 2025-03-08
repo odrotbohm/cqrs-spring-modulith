@@ -1,6 +1,5 @@
-package gae.piaz.modulith.cqrs.command.infrastructure;
+package gae.piaz.modulith.cqrs.command.domain;
 
-import gae.piaz.modulith.cqrs.command.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
