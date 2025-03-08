@@ -8,8 +8,8 @@ top to bottom direction
 !include <C4/C4_Context>
 !include <C4/C4_Component>
 
-Container_Boundary("Application.Application_boundary", "Application", $tags="") {
-  Component(Application.Application.Command, "Command", $techn="Module", $descr="", $tags="", $link="")
+Container_Boundary("CQRSApplication.CQRSApplication_boundary", "CQRSApplication", $tags="") {
+  Component(CQRSApplication.CQRSApplication.Command, "Command", $techn="Module", $descr="", $tags="", $link="")
 }
 
 

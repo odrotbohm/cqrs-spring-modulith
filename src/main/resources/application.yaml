@@ -22,10 +22,7 @@ spring:
     show-sql: true
   modulith:
     events:
-      jdbc:
-        schema-initialization:
-          enabled: true
-        schema: querydb
+      completion-mode: archive
       republish-outstanding-events-on-restart: true
 
 

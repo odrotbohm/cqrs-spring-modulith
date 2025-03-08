@@ -1,6 +1,6 @@
 @startuml
 set separator none
-title Application
+title CQRSApplication
 
 top to bottom direction
 
@@ -8,12 +8,12 @@ top to bottom direction
 !include <C4/C4_Context>
 !include <C4/C4_Component>
 
-Container_Boundary("Application.Application_boundary", "Application", $tags="") {
-  Component(Application.Application.Command, "Command", $techn="Module", $descr="", $tags="", $link="")
-  Component(Application.Application.Query, "Query", $techn="Module", $descr="", $tags="", $link="")
+Container_Boundary("CQRSApplication.CQRSApplication_boundary", "CQRSApplication", $tags="") {
+  Component(CQRSApplication.CQRSApplication.Command, "Command", $techn="Module", $descr="", $tags="", $link="")
+  Component(CQRSApplication.CQRSApplication.Query, "Query", $techn="Module", $descr="", $tags="", $link="")
 }
 
-Rel(Application.Application.Query, Application.Application.Command, "listens to", $techn="", $tags="", $link="")
+Rel(CQRSApplication.CQRSApplication.Query, CQRSApplication.CQRSApplication.Command, "listens to", $techn="", $tags="", $link="")
 
 SHOW_LEGEND(true)
 @enduml

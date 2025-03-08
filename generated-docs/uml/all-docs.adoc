@@ -1,4 +1,4 @@
-== Application
+== CQRSApplication
 plantuml::components.puml[,,format=svg]
 
 == Command
