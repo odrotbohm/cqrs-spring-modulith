@@ -1,4 +1,4 @@
-# Spring Modulith CQRS Example
+# CQRS with Spring Modulith 
 
 This project demonstrates how to implement the Command Query Responsibility Segregation (CQRS) pattern using Spring Modulith.
 
