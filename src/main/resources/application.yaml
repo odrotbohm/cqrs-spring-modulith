@@ -20,6 +20,14 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+        schema: querydb
+      republish-outstanding-events-on-restart: true
+
 
 logging:
   level:

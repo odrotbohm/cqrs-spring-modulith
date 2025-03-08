@@ -13,6 +13,9 @@ import java.net.URI;
 @AllArgsConstructor
 public class ProductCommandController {
     private final ProductCommandService commandService;
+    // curl -X POST http://localhost:8080/api/products/commands \
+    //   -H "Content-Type: application/json" \
+    //   -d '{"name":"Product 1","description":"Description","price":99.99,"stock":100,"category":"Electronics"}'
 
     @PostMapping
     public ResponseEntity<Long> createProduct(@RequestBody CreateProductRequest request) {
@@ -50,4 +53,4 @@ public class ProductCommandController {
     public record CreateProductRequest(String name, String description, BigDecimal price, Integer stock, String category) {}
     public record UpdateStockRequest(Integer quantityChange) {}
     public record UpdateProductRequest(String name, String description, BigDecimal price, String category) {}
-} 
+}

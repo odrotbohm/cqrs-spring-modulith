@@ -40,7 +40,7 @@ public class CqrsConfig {
             @Qualifier("commandDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("gae.piaz.modulith.cqrs.command.domain")
+                .packages("gae.piaz.modulith.cqrs.command.domain","org.springframework.modulith.events.jpa")
                 .persistenceUnit("command")
                 .build();
     }

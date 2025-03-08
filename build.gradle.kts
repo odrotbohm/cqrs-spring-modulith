@@ -23,6 +23,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.modulith:spring-modulith-starter-core")
+	implementation("org.springframework.modulith:spring-modulith-events-api")
 	implementation("org.springframework.modulith:spring-modulith-starter-jpa")
 
 	compileOnly("org.projectlombok:lombok")
