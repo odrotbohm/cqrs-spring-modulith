@@ -27,7 +27,7 @@ public class ProductQueryService {
     }
     
     public List<ProductView> findByCategory(String category) {
-        return viewRepository.findByCategoryName(category);
+        return viewRepository.findByCategory(category);
     }
     
     public List<ProductView> findByPriceRange(BigDecimal min, BigDecimal max) {

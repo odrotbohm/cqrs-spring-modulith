@@ -54,29 +54,7 @@ class ProductCatalogIntegrationTest {
             assertThat(view).isPresent();
             assertThat(view.get().getName()).isEqualTo(name);
             assertThat(view.get().getPrice()).isEqualTo(price);
-            assertThat(view.get().getCategoryName()).isEqualTo(category);
-        });
-    }
-
-    @Test
-    void shouldUpdateProductStockAndReflectInView() {
-        // Given
-        Long productId = commandService.createProduct(
-            "Stock Test", "Description", BigDecimal.TEN, 50, "Category");
-        Integer stockChange = -5;
-
-        // When
-        commandService.updateStock(productId, stockChange);
-
-        // Then
-        // Command side check
-        Product product = productRepository.findById(productId).orElseThrow();
-        assertThat(product.getStock()).isEqualTo(45);
-
-        // Query side check
-        await().atMost(ofSeconds(5)).untilAsserted(() -> {
-            ProductView view = viewRepository.findById(productId).orElseThrow();
-            assertThat(view.getStock()).isEqualTo(45);
+            assertThat(view.get().getCategory()).isEqualTo(category);
         });
     }
 
@@ -88,11 +66,11 @@ class ProductCatalogIntegrationTest {
         commandService.createProduct("Laptop", "Powerful Laptop", BigDecimal.valueOf(1999.99), 5, category);
 
         // When (wait for views to be created)
-        await().atMost(ofSeconds(5)).until(() -> viewRepository.findByCategoryName(category).size() >= 2);
+        await().atMost(ofSeconds(5)).until(() -> viewRepository.findByCategory(category).size() >= 2);
 
         // Then
-        List<ProductView> products = viewRepository.findByCategoryName(category);
+        List<ProductView> products = viewRepository.findByCategory(category);
         assertThat(products).hasSize(2);
-        assertThat(products).extracting(ProductView::getCategoryName).containsOnly(category);
+        assertThat(products).extracting(ProductView::getCategory).containsOnly(category);
     }
 } 

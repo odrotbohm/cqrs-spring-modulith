@@ -2,7 +2,6 @@ package gae.piaz.modulith.cqrs.command.service;
 
 import gae.piaz.modulith.cqrs.command.domain.Product;
 import gae.piaz.modulith.cqrs.command.events.ProductCreatedEvent;
-import gae.piaz.modulith.cqrs.command.events.ProductStockChangedEvent;
 import gae.piaz.modulith.cqrs.command.events.ProductUpdatedEvent;
 import gae.piaz.modulith.cqrs.command.domain.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -22,7 +21,13 @@ public class ProductCommandService {
     private final ApplicationEventPublisher eventPublisher;
 
     public Long createProduct(String name, String description, BigDecimal price, Integer stock, String category) {
-        Product product = new Product(name, description, price, stock, category);
+        Product product = new Product();
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setStock(stock);
+        product.setCategory(category);
+
         Product saved = productRepository.save(product);
 
         eventPublisher.publishEvent(new ProductCreatedEvent(
@@ -31,42 +36,28 @@ public class ProductCommandService {
             saved.getDescription(),
             saved.getPrice(),
             saved.getStock(),
-            saved.getCategory(),
-            LocalDateTime.now()
+            saved.getCategory()
         ));
-
         return saved.getId();
     }
     
-    public void updateStock(Long productId, Integer quantityChange) {
+    public void updateProduct(Long productId, String name, String description, BigDecimal price, Integer stock, String category) {
         Product product = productRepository.findById(productId)
             .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + productId));
-
-        product.updateStock(quantityChange);
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setStock(stock);
+        product.setCategory(category);
         productRepository.save(product);
-
-        eventPublisher.publishEvent(new ProductStockChangedEvent(
-            product.getId(),
-            product.getStock(),
-            quantityChange,
-            LocalDateTime.now()
-        ));
-    }
-    
-    public void updateProduct(Long productId, String name, String description, BigDecimal price, String category) {
-        Product product = productRepository.findById(productId)
-            .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + productId));
-            
-        product.update(name, description, price, category);
-        productRepository.save(product);
-
+        
         eventPublisher.publishEvent(new ProductUpdatedEvent(
             product.getId(),
             product.getName(),
             product.getDescription(),
             product.getPrice(),
-            product.getCategory(),
-            LocalDateTime.now()
+            product.getStock(),
+            product.getCategory()
         ));
     }
 } 

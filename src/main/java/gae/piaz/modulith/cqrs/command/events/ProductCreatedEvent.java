@@ -12,6 +12,5 @@ public record ProductCreatedEvent(
     String description,
     BigDecimal price,
     Integer stock,
-    String category,
-    LocalDateTime createdAt
+    String category
 ) {} 

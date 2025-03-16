@@ -11,5 +11,4 @@ public class CQRSApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CQRSApplication.class, args);
 	}
-
 }

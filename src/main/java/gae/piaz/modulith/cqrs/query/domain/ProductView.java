@@ -13,23 +13,18 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class ProductView {
+
     @Id
     private Long id;
-    
     private String name;
     private String description;
     private BigDecimal price;
     private Integer stock;
-    
-    @Column(name = "category_name")
-    private String categoryName;
+    private String category;
     
     @Column(name = "average_rating")
     private Double averageRating = 0.0;
     
     @Column(name = "review_count")
     private Integer reviewCount = 0;
-    
-    @Column(name = "last_updated")
-    private LocalDateTime lastUpdated = LocalDateTime.now();
 } 

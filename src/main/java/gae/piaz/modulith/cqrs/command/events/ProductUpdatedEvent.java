@@ -11,6 +11,6 @@ public record ProductUpdatedEvent(
     String name,
     String description,
     BigDecimal price,
-    String category,
-    LocalDateTime updatedAt
+    Integer stock,
+    String category
 ) {} 

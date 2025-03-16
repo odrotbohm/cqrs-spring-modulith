@@ -11,21 +11,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductViewRepository extends JpaRepository<ProductView, Long> {
-    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
-    List<ProductView> findByCategoryName(String categoryName);
+
+    List<ProductView> findByCategory(String categoryName);
     
     @Query("SELECT pv FROM ProductView pv WHERE pv.price BETWEEN :minPrice AND :maxPrice")
-    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
-    List<ProductView> findByPriceRange(@Param("minPrice") BigDecimal minPrice, 
+    List<ProductView> findByPriceRange(@Param("minPrice") BigDecimal minPrice,
                                       @Param("maxPrice") BigDecimal maxPrice);
-    
-    // Custom projections for specific use cases
-    interface ProductSummary {
-        Long getId();
-        String getName();
-        BigDecimal getPrice();
-        Integer getStock();
-    }
-    
-    List<ProductSummary> findAllProjectedBy();
+
 }
