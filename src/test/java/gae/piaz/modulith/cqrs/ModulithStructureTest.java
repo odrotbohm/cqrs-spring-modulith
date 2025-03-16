@@ -3,6 +3,7 @@ package gae.piaz.modulith.cqrs;
 import org.junit.jupiter.api.Test;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
+import org.springframework.modulith.docs.Documenter.Options;
 
 class ModulithStructureTest {
 
@@ -15,11 +16,16 @@ class ModulithStructureTest {
 
     @Test
     void createModuleDocumentation() {
-        new Documenter(modules, "generated-docs/uml").writeDocumentation().writeModulesAsPlantUml();
+        Options options = Options.defaults().withOutputFolder("generated-docs/uml");
+        new Documenter(modules, options)
+            .writeDocumentation()
+            .writeModulesAsPlantUml();
     }
 
     @Test
     void writeDocumentationSnippets() {
-        new Documenter(modules, "generated-docs/canvases").writeModuleCanvases();
+        Options options = Options.defaults().withOutputFolder("generated-docs/canvases");
+        new Documenter(modules, options)
+            .writeModuleCanvases();
     }
 } 
