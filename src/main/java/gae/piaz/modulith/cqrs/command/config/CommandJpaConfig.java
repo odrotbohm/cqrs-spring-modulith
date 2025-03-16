@@ -6,10 +6,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(
-    basePackages = {"gae.piaz.modulith.cqrs.command.domain", "org.springframework.modulith.events.jpa"},
-    entityManagerFactoryRef = "entityManagerFactory",
-    transactionManagerRef = "transactionManager"
-)
+@EnableJpaRepositories(basePackages = { "gae.piaz.modulith.cqrs.command.domain",
+    "org.springframework.modulith.events.jpa" }, entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef = "transactionManager")
 public class CommandJpaConfig {
+
 }

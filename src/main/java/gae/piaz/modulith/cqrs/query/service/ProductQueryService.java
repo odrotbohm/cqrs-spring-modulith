@@ -1,4 +1,4 @@
-package gae.piaz.modulith.cqrs.query.application;
+package gae.piaz.modulith.cqrs.query.service;
 
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
 import gae.piaz.modulith.cqrs.query.domain.ProductViewRepository;
@@ -32,5 +32,9 @@ public class ProductQueryService {
     
     public List<ProductView> findByPriceRange(BigDecimal min, BigDecimal max) {
         return viewRepository.findByPriceRange(min, max);
+    }
+    
+    public List<ProductView> findAllOrderByRating() {
+        return viewRepository.findAllOrderByRatingDesc();
     }
 } 

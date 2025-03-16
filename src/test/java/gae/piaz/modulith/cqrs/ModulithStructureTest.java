@@ -16,16 +16,16 @@ class ModulithStructureTest {
 
     @Test
     void createModuleDocumentation() {
-        Options options = Options.defaults().withOutputFolder("generated-docs/uml");
-        new Documenter(modules, options)
-            .writeDocumentation()
+        Options options = Options.defaults()
+            .withOutputFolder("generated-docs/uml");
+        new Documenter(modules, options).writeDocumentation()
             .writeModulesAsPlantUml();
     }
 
     @Test
     void writeDocumentationSnippets() {
-        Options options = Options.defaults().withOutputFolder("generated-docs/canvases");
-        new Documenter(modules, options)
-            .writeModuleCanvases();
+        Options options = Options.defaults()
+            .withOutputFolder("generated-docs/canvases");
+        new Documenter(modules, options).writeModuleCanvases();
     }
 } 

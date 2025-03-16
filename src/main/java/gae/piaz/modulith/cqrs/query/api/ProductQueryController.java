@@ -1,6 +1,6 @@
 package gae.piaz.modulith.cqrs.query.api;
 
-import gae.piaz.modulith.cqrs.query.application.ProductQueryService;
+import gae.piaz.modulith.cqrs.query.service.ProductQueryService;
 import gae.piaz.modulith.cqrs.query.domain.ProductView;
 import lombok.AllArgsConstructor;
 
@@ -35,4 +35,10 @@ public class ProductQueryController {
             @RequestParam BigDecimal max) {
         return queryService.findByPriceRange(min, max);
     }
+    
+    @GetMapping("/by-rating")
+    public List<ProductView> getProductsByRating() {
+        return queryService.findAllOrderByRating();
+    }
+    
 } 

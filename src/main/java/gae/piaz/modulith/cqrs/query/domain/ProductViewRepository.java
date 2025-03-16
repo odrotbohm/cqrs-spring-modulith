@@ -18,4 +18,7 @@ public interface ProductViewRepository extends JpaRepository<ProductView, Long> 
     List<ProductView> findByPriceRange(@Param("minPrice") BigDecimal minPrice,
                                       @Param("maxPrice") BigDecimal maxPrice);
 
+    @Query("SELECT pv FROM ProductView pv WHERE pv.reviewCount > 0 ORDER BY pv.averageRating DESC")
+    List<ProductView> findAllOrderByRatingDesc();
+
 }

@@ -22,7 +22,7 @@ public class ProductView {
     private Integer stock;
     private String category;
     
-    // Specific to Query
+    // Specific to Query (Denormalized data)
     @Column(name = "average_rating")
     private Double averageRating = 0.0;
     @Column(name = "review_count")
