@@ -2,6 +2,8 @@
 
 This project demonstrates how to implement the Command Query Responsibility Segregation (CQRS) pattern using Spring Modulith.
 
+Every detail of the implementation is explained here: [https://gaetanopiazzolla.github.io/java/design-patterns/springboot/2025/03/17/cqrs.html](https://gaetanopiazzolla.github.io/java/design-patterns/springboot/2025/03/17/cqrs.html)
+
 ![diagram.png](generated-docs/diagram.png)
 
 *Generated using ModulithStructureTest*
