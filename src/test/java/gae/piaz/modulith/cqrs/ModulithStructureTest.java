@@ -7,25 +7,29 @@ import org.springframework.modulith.docs.Documenter.Options;
 
 class ModulithStructureTest {
 
-    ApplicationModules modules = ApplicationModules.of(CQRSApplication.class);
+	ApplicationModules modules = ApplicationModules.of(CQRSApplication.class);
 
-    @Test
-    void verifiesModularStructure() {
-        modules.verify();
-    }
+	@Test
+	void verifiesModularStructure() {
+		modules.verify();
+	}
 
-    @Test
-    void createModuleDocumentation() {
-        Options options = Options.defaults()
-            .withOutputFolder("generated-docs/uml");
-        new Documenter(modules, options).writeDocumentation()
-            .writeModulesAsPlantUml();
-    }
+	@Test
+	void createModuleDocumentation() {
 
-    @Test
-    void writeDocumentationSnippets() {
-        Options options = Options.defaults()
-            .withOutputFolder("generated-docs/canvases");
-        new Documenter(modules, options).writeModuleCanvases();
-    }
-} 
+		var options = Options.defaults().withOutputFolder("generated-docs/uml");
+
+		new Documenter(modules, options)
+				.writeDocumentation()
+				.writeModulesAsPlantUml();
+	}
+
+	@Test
+	void writeDocumentationSnippets() {
+
+		var options = Options.defaults().withOutputFolder("generated-docs/canvases");
+
+		new Documenter(modules, options)
+				.writeModuleCanvases();
+	}
+}

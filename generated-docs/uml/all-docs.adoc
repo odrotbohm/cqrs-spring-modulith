@@ -1,15 +1,7 @@
 == CQRSApplication
 plantuml::components.puml[,,format=svg]
 
-== Command
-plantuml::module-command.puml[,,format=svg]
-include::module-command.adoc[]
-
-== Query
-plantuml::module-query.puml[,,format=svg]
-include::module-query.adoc[]
-
-== Shared
-plantuml::module-shared.puml[,,format=svg]
-include::module-shared.adoc[]
+== Products
+plantuml::module-products.puml[,,format=svg]
+include::module-products.adoc[]
 
