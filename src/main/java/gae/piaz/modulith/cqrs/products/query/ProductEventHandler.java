@@ -8,9 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.jmolecules.event.annotation.DomainEventHandler;
 import org.springframework.modulith.events.ApplicationModuleListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
+@Transactional(transactionManager = "queryTransactionManager")
 class ProductEventHandler {
 
 	private final ProductViewRepository viewRepository;
