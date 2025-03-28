@@ -1,6 +1,6 @@
 # CQRS with Spring Modulith
 
-The repository here contains a refactored variant of the code base for this blog post. I uses the same fundamental abstractions but tries to follow Spring Modulith-idiomatic code arrangements and jMolecules to make the code a bit more architecturally equivalent
+The repository here contains a refactored variant of the code base for [this blog post](https://gaetanopiazzolla.github.io/java/design-patterns/springboot/2025/03/17/cqrs.html). It uses the same fundamental abstractions but tries to follow Spring Modulith-idiomatic code arrangements and jMolecules to make the code a bit more architecturally-evident.
 
 Here are the most fundamental changes:
 
