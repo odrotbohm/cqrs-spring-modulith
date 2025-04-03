@@ -15,8 +15,6 @@
  */
 package gae.piaz.modulith.cqrs.products.command;
 
-import java.util.UUID;
-
 import org.jmolecules.ddd.types.Identifier;
 
-public record ReviewIdentifier(UUID id) implements Identifier {}
+public record ReviewIdentifier(Long id) implements Identifier {}

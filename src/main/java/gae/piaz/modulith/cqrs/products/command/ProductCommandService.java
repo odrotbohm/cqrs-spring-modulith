@@ -8,6 +8,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.jmolecules.ddd.types.Association;
 import org.springframework.context.ApplicationEventPublisher;
@@ -27,6 +28,7 @@ class ProductCommandService {
 			String category) {
 
 		var product = new Product();
+		product.setId(new ProductIdentifier(LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)));
 		product.setName(name);
 		product.setDescription(description);
 		product.setPrice(price);

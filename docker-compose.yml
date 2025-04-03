@@ -1,0 +1,9 @@
+services:
+  database:
+    image: postgres:17.0-alpine
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_PASSWORD=modulith
+      - POSTGRES_USER=produser
+      - POSTGRES_DB=products

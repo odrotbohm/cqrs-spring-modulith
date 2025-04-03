@@ -8,7 +8,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import org.jmolecules.ddd.types.AggregateRoot;
 import org.jmolecules.ddd.types.Identifier;
@@ -24,5 +23,5 @@ public class Product implements AggregateRoot<Product, ProductIdentifier> {
 
 	private List<Review> reviews = new ArrayList<>();
 
-	public record ProductIdentifier(UUID id) implements Identifier {}
+	public record ProductIdentifier(Long id) implements Identifier {}
 }

@@ -1,4 +1,4 @@
-name: Gradle Build
+name: Maven Build
 
 on:
   push:
@@ -25,7 +25,8 @@ jobs:
           java-version: '23'
           distribution: 'temurin'
           architecture: x64
-      - name: Setup gradle
-        uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda
+          cache: maven
+      - name: Setup maven
+        uses: s4u/setup-maven-action@v1.18.0
       - name: Run check
-        run: ./gradlew clean test
+        run: mvn clean verify

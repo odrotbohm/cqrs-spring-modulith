@@ -31,7 +31,7 @@ class ProductCommandController {
 		var id = commandService.createProduct(request.name(), request.description(), request.price(), request.stock(),
 				request.category());
 
-		return ResponseEntity.created(URI.create("/api/products/" + id)).body(id);
+		return ResponseEntity.created(URI.create("/api/products/" + id.id())).body(id);
 	}
 
 	@PutMapping("/{id}")
@@ -50,7 +50,7 @@ class ProductCommandController {
 
 		var reviewId = commandService.addReview(id, request.vote(), request.comment());
 
-		return ResponseEntity.created(URI.create("/api/products/" + id + "/reviews/" + reviewId))
+		return ResponseEntity.created(URI.create("/api/products/" + id.id() + "/reviews/" + reviewId.id()))
 				.body(reviewId);
 	}
 

@@ -1,17 +1,19 @@
 spring:
   application:
     name: modulith.cqrs
-  h2:
-    console:
-      enabled: true
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: none
   modulith:
     events:
       completion-mode: archive
       republish-outstanding-events-on-restart: true
-
-
+  docker:
+    compose:
+      lifecycle-management: start_only
+  flyway:
+    locations: classpath:db/migration
 logging:
   level:
     gae.piaz.modulith.cqrs: DEBUG
