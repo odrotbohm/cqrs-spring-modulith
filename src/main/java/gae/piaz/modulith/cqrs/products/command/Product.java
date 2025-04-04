@@ -4,13 +4,13 @@ import gae.piaz.modulith.cqrs.products.command.Product.ProductIdentifier;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.jmolecules.ddd.types.AggregateRoot;
+import org.jmolecules.ddd.types.Identifier;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Identifier;
+import java.util.UUID;
 
 @Getter
 @Setter(AccessLevel.PACKAGE)
@@ -23,5 +23,5 @@ public class Product implements AggregateRoot<Product, ProductIdentifier> {
 
 	private List<Review> reviews = new ArrayList<>();
 
-	public record ProductIdentifier(Long id) implements Identifier {}
+	public record ProductIdentifier(UUID id) implements Identifier {}
 }
