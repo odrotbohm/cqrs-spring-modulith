@@ -55,13 +55,14 @@ create table review
     id         uuid
         constraint pk_review primary key,
     author     varchar(255),
-    product_id uuid not null
+    reviews_id uuid not null
         constraint fk_review_product references product,
+    product uuid,
     vote       integer
         constraint chk_vote check (vote >= (0):: numeric and vote <= (5):: numeric),
     comment    varchar(255)
 );
 
 create index idx_review_product_id
-    on review (product_id);
+    on review (reviews_id);
 

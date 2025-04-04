@@ -6,14 +6,13 @@ import gae.piaz.modulith.cqrs.products.command.ProductEvents.ProductReviewed;
 import gae.piaz.modulith.cqrs.products.command.ProductEvents.ProductUpdated;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-
-import java.math.BigDecimal;
-import java.util.UUID;
-
 import org.jmolecules.ddd.types.Association;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -72,6 +71,7 @@ class ProductCommandService {
 				.orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + productId));
 
 		var review = new Review();
+		review.setId(new ReviewIdentifier(UUID.randomUUID()));
 		review.setVote(vote);
 		review.setComment(comment);
 		review.setProduct(Association.forAggregate(product));
