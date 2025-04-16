@@ -45,12 +45,14 @@ class ProductCommandController {
 	}
 
 	@PostMapping("/{id}/reviews")
-	ResponseEntity<ReviewIdentifier> addReview(@PathVariable ProductIdentifier id,
+	ResponseEntity<ReviewIdentifier> addReview(@PathVariable ProductIdentifier productIdentifier,
 			@RequestBody AddReviewRequest request) {
 
-		var reviewId = commandService.addReview(id, request.vote(), request.comment());
+		var review = commandService.addReview(productIdentifier, request.vote(), request.comment());
+		var reviewId = review.getId();
 
-		return ResponseEntity.created(URI.create("/api/products/" + id.id() + "/reviews/" + reviewId.id()))
+		return ResponseEntity
+				.created(URI.create("/api/products/" + productIdentifier.id() + "/reviews/" + reviewId.id()))
 				.body(reviewId);
 	}
 

@@ -1,18 +1,20 @@
 package gae.piaz.modulith.cqrs.products.command;
 
-import gae.piaz.modulith.cqrs.products.command.Product.ProductIdentifier;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Association;
+import java.util.UUID;
+
+import org.jmolecules.ddd.types.Entity;
 
 @Getter
-@Setter
-class Review implements AggregateRoot<Review, ReviewIdentifier> {
+class Review implements Entity<Product, ReviewIdentifier> {
 
-	private ReviewIdentifier id;
-	private Integer vote;
-	private String comment;
-	private Association<Product, ProductIdentifier> product;
+	private final ReviewIdentifier id;
+	private @Setter Integer vote;
+	private @Setter String comment;
+
+	public Review() {
+		this.id = new ReviewIdentifier(UUID.randomUUID());
+	}
 }
