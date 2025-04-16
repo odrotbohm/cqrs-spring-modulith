@@ -179,8 +179,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<source>${build.sourceDirectory}</source>
-					<target>${build.outputDirectory}</target>
+					<source>${project.build.sourceDirectory}</source>
+					<target>${project.build.outputDirectory}</target>
 					<classPathDiscovery>true</classPathDiscovery>
 				</configuration>
 			</plugin>
